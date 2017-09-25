@@ -13,6 +13,8 @@ rabbitmqadmin declare vhost name=/mcollective
 rabbitmqadmin declare user name=$MC_USERNAME password=$MC_PASSWORD tags=
 rabbitmqadmin declare user name=admin password=changeme tags=administrator
 rabbitmqadmin declare permission vhost=/mcollective user=mcollective configure='.*' write='.*' read='.*'
+rabbitmqadmin declare permission vhost=/mcollective user=admin configure='.*' write='.*' read='.*'
+
 rabbitmqadmin declare exchange --user=admin --password=changeme --vhost=/mcollective name=mcollective_broadcast type=topic
 rabbitmqadmin declare exchange --user=admin --password=changeme --vhost=/mcollective name=mcollective_directed type=direct
 
