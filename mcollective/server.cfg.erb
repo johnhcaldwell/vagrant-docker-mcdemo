@@ -1,0 +1,23 @@
+main_collective = mcollective
+collectives = mcollective
+libdir = /usr/libexec/mcollective
+logfile = /var/log/mcollective.log
+loglevel = info
+daemonize = 1
+
+# Plugins
+securityprovider = psk
+plugin.psk = unset
+
+connector = rabbitmq
+plugin.rabbitmq.vhost = /mcollective
+plugin.rabbitmq.pool.size = 1
+plugin.rabbitmq.pool.1.host = <%= ENV['MC_BROKER_HOSTNAME'] %>
+plugin.rabbitmq.pool.1.port = <%= ENV['MC_BROKER_PORT'] %>
+plugin.rabbitmq.pool.1.user = <%= ENV['MC_USERNAME'] %>
+plugin.rabbitmq.pool.1.password = <%= ENV['MC_PASSWORD'] %>
+
+# Facts
+factsource = yaml
+plugin.yaml = /etc/mcollective/facts.yaml
+
