@@ -18,5 +18,8 @@ rabbitmqadmin declare permission vhost=/mcollective user=admin configure='.*' wr
 rabbitmqadmin declare exchange --user=admin --password=changeme --vhost=/mcollective name=mcollective_broadcast type=topic
 rabbitmqadmin declare exchange --user=admin --password=changeme --vhost=/mcollective name=mcollective_directed type=direct
 
-erb /vagrant/mcollective/client.cfg.erb > /etc/mcollective/client.cfg
+erb /vagrant/templates/client.cfg.erb > /etc/mcollective/client.cfg
+
+mkdir -p /usr/libexec/mcollective/mcollective
+cp -a /vagrant/plugins/* /usr/libexec/mcollective/mcollective
 

@@ -1,0 +1,3 @@
+Place any mcollective plugins you want installed on the nodes within this 
+directory and they will be copied upon install.  Plugins can be obtained
+from github: https://github.com/puppetlabs/mcollective-plugins
